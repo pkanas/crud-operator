@@ -1,29 +1,32 @@
-<form [formGroup]="organisationForm">
-    <div class="row">
-        <div class="col-md-6 form-group">
-            <input placeholder="Organisation title" formControlName="title" class="form-control"
-                [(ngModel)]="organisationService.currentOrganisation.title">
-            <span *ngIf="!organisationForm.get('title').valid && organisationForm.get('title').touched" class="help-block"
-                style="color:red">
-                todo title is reuired
-            </span>
+<mat-card>
+    <form [formGroup]="organisationForm">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <input placeholder="Organisation title" formControlName="title" class="form-control"
+                    [(ngModel)]="organisationService.currentOrganisation.title">
+                <span *ngIf="!organisationForm.get('title').valid && organisationForm.get('title').touched" class="help-block"
+                    style="color:red">
+                    organisation title is reuired
+                </span>
+            </div>
+            <div class="col-md-6 form-group">
+                <textarea placeholder="Organisation description" formControlName="description" class="form-control"
+                    [(ngModel)]="organisationService.currentOrganisation.description" rows="5">
+                </textarea>
+                <span *ngIf="!organisationForm.get('description').valid && organisationForm.get('description').touched" class="help-block"
+                    style="color:red">
+                    organisation description is required
+                </span>
+            </div>
         </div>
-        <div class="col-md-6 form-group">
-            <input placeholder="Organisation description" formControlName="description" class="form-control"
-                [(ngModel)]="organisationService.currentOrganisation.description">
-            <span *ngIf="!organisationForm.get('description').valid && organisationForm.get('description').touched" class="help-block"
-                style="color:red">
-                todo title is description
-            </span>
+    
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <button mat-raised-button color="accent" [disabled]="!organisationForm.valid"
+                    (click)="createAndUpdate(organisationService.currentOrganisation)"><i class="fa fa-save"></i>
+                    Save</button>
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 form-group">
-            <button class="btn btn-success" [disabled]="!organisationForm.valid"
-                (click)="createAndUpdate(organisationService.currentOrganisation)"><i class="fa fa-save"></i>
-                Save</button>
-        </div>
-    </div>
-
-</form>
+    
+    </form>
+</mat-card>

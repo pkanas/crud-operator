@@ -4,6 +4,7 @@ import { OrganisationComponent } from './organisation/organisation.component';
 import { OrganisationListComponent } from './organisation-list/organisation-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrgaisationService } from '../shared/orgaisation.service';
+import { MaterialModule } from '../material/material/material.module';
 
 
 
@@ -14,6 +15,7 @@ import { OrgaisationService } from '../shared/orgaisation.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialModule
   ],
   exports: [
     OrganisationComponent,

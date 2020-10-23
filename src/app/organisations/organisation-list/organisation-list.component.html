@@ -1,12 +1,12 @@
 <table class="table table-hover">
     <tr>
         <th>organisationTitle</th>
-        <th>organisationTitle Description</th>
+        <th>organisation Description</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
 
-    <tr *ngFor="let organisation of AllOrganisation.data">
+    <tr *ngFor="let organisation of organisationService.globalOrganisationList.data">
         <td>{{organisation.title}}</td>
         <td>{{organisation.description}}</td>
 

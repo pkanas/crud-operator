@@ -19,7 +19,8 @@ export class OrganisationListComponent implements OnInit {
   getAllOrganisation() {
     this.organisationService.getAllOrganisation().subscribe(
       (data: Organisation[]) => {
-        this.AllOrganisation = data;
+        // this.AllOrganisation = data;
+        this.organisationService.globalOrganisationList = data;
       }
     )
   }

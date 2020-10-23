@@ -9,7 +9,7 @@ import { OrgaisationService } from 'src/app/shared/orgaisation.service';
   styleUrls: ['./organisation.component.css']
 })
 export class OrganisationComponent implements OnInit {
-
+  AllOrganisation: Organisation[];
   organisationForm: FormGroup;
   constructor(private organisationService: OrgaisationService) { }
 
@@ -32,11 +32,23 @@ export class OrganisationComponent implements OnInit {
   }
 
   createOrganistion(organisation: Organisation) {
-    this.organisationService.createOrganisation(organisation).subscribe();
+    this.organisationService.createOrganisation(organisation).subscribe(data=>{
+		this.organisationService.getAllOrganisation().subscribe(
+			(data: Organisation[]) => {
+			  this.organisationService.globalOrganisationList = data;
+			}
+		  )
+	});
   }
 
   updateOrganisation(organisation: Organisation) {
-    this.organisationService.updateOrganisation(organisation).subscribe();
+    this.organisationService.updateOrganisation(organisation).subscribe(data=>{
+      this.organisationService.getAllOrganisation().subscribe(
+        (data: Organisation[]) => {
+          this.organisationService.globalOrganisationList = data;
+        }
+        )
+    });
   }
 
 }
